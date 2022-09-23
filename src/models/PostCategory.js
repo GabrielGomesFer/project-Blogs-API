@@ -5,17 +5,16 @@ const PostCategoryModel = (sequelize, DataTypes) => {
     },
     {
         timestamps: false,
-        tableName: 'user_books'
     });
 
     definePostCategory.associate = (models) => {
-        definePostCategory.belongsTo(models.Category, {
+        models.BlogPost.belongsTo(models.Category, {
             as:'posts',
             through: PostCategoryModel,
             foreignKey: 'id',
             otherKey: 'post_id'
         });
-        definePostCategory.belongsTo(models.BlogPost, {
+        models.Category.belongsTo(models.BlogPost, {
             as:'categories',
             through: PostCategoryModel,
             foreignKey: 'id',
