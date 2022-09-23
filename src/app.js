@@ -1,5 +1,4 @@
 const express = require('express');
-// initial commit
 // ...
 
 const app = express();
