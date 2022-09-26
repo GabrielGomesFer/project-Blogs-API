@@ -16,13 +16,14 @@ const Login = async (req, res) => {
         }
 
         const config = {
-            expiresIn: '1d',
+            // expiresIn: '1d',
             algorithm: 'HS256',
         };
 
         const token = jwt.sign(email, secret, config);
         return res.status(200).json({ token });
     } catch (error) {
+        console.log(error);
         return res.status(400).json(error.message);
     }
 };

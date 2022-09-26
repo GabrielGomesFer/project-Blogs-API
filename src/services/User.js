@@ -1,9 +1,9 @@
-const UserModel = require('../models/User');
+const { User } = require('../models/index');
 
 require('dotenv').config();
 
 const userLogin = async (email, password) => {
-    const result = await UserModel.findOne({ where: { email } });
+    const result = await User.findOne({ where: { email } });
 
     if (!result || result.password !== password) {
         return { type: true, message: 'Invalid fields' };
