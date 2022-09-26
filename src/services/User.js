@@ -1,17 +1,14 @@
-const jwt = require('jsonwebtoken');
 const UserModel = require('../models/User');
 
 require('dotenv').config();
 
-const userLogin = async ({ email }) => {
+const userLogin = async (email, password) => {
     const result = await UserModel.findOne({ where: { email } });
 
-    const token = jwt.sign(
-        { id: result.dataValues.id },
-        process.env.JWT_SECRET,
-        { algorithm: 'HS256' },
-    );
-    return token;
+    if (!result || result.password !== password) {
+        return { type: true, message: 'Invalid fields' };
+    }
+    return { type: false, message: result };
 };
 
 module.exports = userLogin;
