@@ -1,14 +1,21 @@
 const { User } = require('../models/index');
 
-require('dotenv').config();
-
-const userLogin = async (email, password) => {
-    const result = await User.findOne({ where: { email } });
-
-    if (!result || result.password !== password) {
-        return { type: true, message: 'Invalid fields' };
-    }
-    return { type: false, message: result };
+const getAllUsers = async () => {
+    const result = await User.findAll(
+        { attributes: { exclude: ['password'] } },
+);
+    return result;
 };
 
-module.exports = userLogin;
+const getUserById = async (id) => {
+        const user = await User.findOne({ where: { id } });
+        return user;
+      };
+
+const createUser = async (displayName, email, password, image) => {
+    const result = await User.create({ displayName, email, password, image });
+
+    return result;
+};
+
+module.exports = { createUser, getAllUsers, getUserById };

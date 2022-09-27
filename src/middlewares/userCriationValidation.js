@@ -1,3 +1,6 @@
+const { User } = require('../models/index');
+require('dotenv').config();
+
 const regexEmail = (email) => {
     const regex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
     const isEmailCorrect = regex.test(email);
@@ -29,4 +32,18 @@ const validateCriation = (req, res, next) => {
     next();
 };
 
-module.exports = validateCriation;
+const onlyEmailVerify = async (req, res, next) => {
+    const { email } = req.body;
+
+    console.log('email:', email);
+    const userExists = await User.findOne({ where: { email } });
+
+    console.log('user', userExists);
+    if (userExists) {
+    return res.status(409).json({ message: 'User already registered' });
+    }
+
+    next();
+};
+
+module.exports = { validateCriation, onlyEmailVerify };
