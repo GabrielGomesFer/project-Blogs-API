@@ -23,7 +23,11 @@ module.exports = {
       },
       published: Sequelize.DATE,
       updated: Sequelize.DATE,
-    });
+    },
+    {
+      timestamps: false,
+    }
+    );
 
   },
 

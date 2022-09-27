@@ -25,7 +25,11 @@ module.exports = {
           key: 'id',
         }
       },
-    });
+    }, {
+      timestamps: false,
+      tableName: 'posts_categories',
+    }
+    );
 
   },
 

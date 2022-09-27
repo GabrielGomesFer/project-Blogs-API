@@ -10,6 +10,8 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: Sequelize.STRING,
+    },{
+      timestamps: false,
     });
 
   },
