@@ -2,7 +2,7 @@ const { User } = require('../models/index');
 
 const getAllUsers = async () => {
     const result = await User.findAll(
-        { attributes: { exclude: ['password'] } },
+        { attributes: ['id', ['display_name', 'displayName'], 'email', 'image'] },
 );
     return result;
 };
