@@ -33,8 +33,6 @@ Uma API RESTful que simula a funcionalidade de um blog. Um usuário pode ser cad
 
   - **:warning: Atenção:** O **git** dentro do container não vem configurado com suas credenciais. Ou faça os commits fora do container, ou configure as suas credenciais do git dentro do container.
 
-  ![sequelize test](./public/remote-container.png)
-
   <br />
   
   ## 👉 Sem Docker
