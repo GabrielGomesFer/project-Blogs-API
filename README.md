@@ -33,16 +33,15 @@ Uma API RESTful que simula a funcionalidade de um blog. Um usuário pode ser cad
 
   - **:warning: Atenção:** O **git** dentro do container não vem configurado com suas credenciais. Ou faça os commits fora do container, ou configure as suas credenciais do git dentro do container.
 
+  ![sequelize test](./public/remote-container.png)
+
   <br />
   
   ## 👉 Sem Docker
 
   > :information_source: Instale as dependências [**Caso existam**] com `npm install`
-  
-  - **:warning: Atenção:** Não rode o comando npm audit fix! Ele atualiza várias dependências do projeto, e essa atualização gera conflitos com o avaliador.
 
   - **✨ Dica:** Para rodar o projeto desta forma, obrigatoriamente você deve ter o `node` instalado em seu computador.
-  - **✨ Dica:** O avaliador espera que a versão do `node` utilizada seja a 16.
 
   <br/>
 </details>
